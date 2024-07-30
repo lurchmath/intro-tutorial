@@ -1,0 +1,67 @@
+
+            <div id="loadlink">
+                <p><a>Open this file in the Lurch web app</a></p>
+                <script language="javascript">
+                    const link = document.querySelector( '#loadlink > p > a' )
+                    const thisURL = encodeURIComponent( window.location.href )
+                    link?.setAttribute( 'href', 'http://localhost:64157/app/?load=' + thisURL )
+                </script>
+            </div>
+        
+            <div id="metadata" style="display: none;"></div>
+            <div id="document"><h1>Theorems and Proofs</h1>
+<p>Just like in LaTeX, theorems and proofs in Lurch are <em>environments,</em> and they are not the only types of environments one can write. But they are the type that students write most of the time, and so as we introduce environments, we will focus on them.</p>
+<h2>First example</h2>
+<p>As an example, consider the following trivial theorem and proof from propositional logic.</p>
+<div class="lurch-atom" data-metadata_type="&quot;theorem&quot;" data-shell_title="Theorem:">
+<p><span class="lurch-atom" contenteditable="false" data-metadata_type="&quot;expression&quot;" data-metadata_lurch-notation="&quot;If P&quot;"><span class="lurch-atom-body"><span class="ML__latex"><span class="ML__base"><span class="ML__text">If </span><span class="ML__mathit" style="margin-right: 0.14em;">P</span></span></span></span></span> is true, then <span class="lurch-atom" contenteditable="false" data-metadata_type="&quot;expression&quot;" data-metadata_lurch-notation="&quot;P&quot;"><span class="lurch-atom-body"><span class="ML__latex"><span class="ML__base"><span class="ML__mathit" style="margin-right: 0.14em;">P</span></span></span></span></span> is true. (Brilliant!)</p>
+</div>
+<div class="lurch-atom" data-metadata_type="&quot;proof&quot;" data-shell_title="Proof:">
+<p><span class="lurch-atom" contenteditable="false" data-metadata_type="&quot;expression&quot;" data-metadata_lurch-notation="&quot;Assume P&quot;"><span class="lurch-atom-body"><span class="ML__latex"><span class="ML__base"><span class="ML__text">Assume </span><span class="ML__mathit" style="margin-right: 0.14em;">P</span></span></span></span></span>. Then we don't really have to do any work here; we just get to conclude <span class="lurch-atom" contenteditable="false" data-metadata_type="&quot;expression&quot;" data-metadata_lurch-notation="&quot;P&quot;"><span class="lurch-atom-body"><span class="ML__latex"><span class="ML__base"><span class="ML__mathit" style="margin-right: 0.14em;">P</span></span></span></span></span> directly because we already assumed it. Hey, our proof is done!</p>
+</div>
+<p>Try showing feedback for this document. (Remember: Document menu, hide/show feedback, or use the shortcut Control+0, or Command+0 on Mac.) What do you notice?</p>
+<ul>
+<li>The green check mark on the conclusion <span class="lurch-atom" contenteditable="false" data-metadata_type="&quot;expositorymath&quot;" data-metadata_latex="&quot;P&quot;"><span class="lurch-atom-body"><span class="ML__latex"><span class="ML__base"><span class="ML__mathit" style="margin-right: 0.14em;">P</span></span></span></span></span> in the proof is probably no surprise, because it's a valid (and trivial) step of logic.</li>
+<li>The green check mark at the end of the proof environment is probably also no surprise. In Lurch, a proof gets a green check mark if every conclusion inside the proof has a green check mark.</li>
+<li>The green check mark on the conclusion <span class="lurch-atom" contenteditable="false" data-metadata_type="&quot;expositorymath&quot;" data-metadata_latex="&quot;P&quot;"><span class="lurch-atom-body"><span class="ML__latex"><span class="ML__base"><span class="ML__mathit" style="margin-right: 0.14em;">P</span></span></span></span></span> in the theorem statement may be more unexpected. Lurch permits theorems with multiple conclusions, and will give a green check mark on each conclusion separately as your proof achieves it.</li>
+<li>The green check mark at the end of the theorem environment is there because every conclusion in the theorem statement has been justified by the subsequent proof.</li>
+</ul>
+<p><span style="text-decoration: underline;"><strong>Tip:</strong></span> Try viewing the proofs above in two different modes, by clicking the Document menu, then choosing "Show/hide meaning." One view shows every expression and environment clearly designated by colors and borders, while the other view keeps everything minimalist and black-and-white. You can switch between these views easily with the keyboard shortcut Alt+0. Which do you prefer?</p>
+<h2>But what are "if" and "assume?"</h2>
+<p>In mathematics, most facts are not proven in isolation, but only after making&nbsp;certain <em>assumptions.</em> A theorem will say, "If such-and-such a fact, then we know some other facts." This is why in a geometry class, many textbooks let a student justify a line in a proof with the word "given." Lurch has support for this essential piece of mathematical reasoning.</p>
+<p>How you make an expression into an assumption depends on which expression editor you're using. (Recall from earlier in this tutorial series that the Preferences dialog lets you choose from several expression editors.)</p>
+<ul>
+<li>In advanced mode, you just place a word in front of your expression, such as "assume" or "if." A full list of such words appears in the <a href="https://lurchmath.github.io/lurch/parsers/lurch-parser-docs.html" target="_blank" rel="noopener">Lurch Notation reference</a>.</li>
+<li>In the other modes, there are user interface elements for making an expression an assumption.</li>
+</ul>
+<p><strong>Lurch does not grade a student's assumptions.</strong> In mathematics, you can assume anything you want. Some assumptions are not strategic, but no assumption is invalid. So Lurch gives no feedback about assumptions.</p>
+<h2>Environments delimit scopes</h2>
+<p>Notice that the following expression is not valid: <span class="lurch-atom" contenteditable="false" data-metadata_type="&quot;expression&quot;" data-metadata_lurch-notation="&quot;P&quot;"><span class="lurch-atom-body"><span class="ML__latex"><span class="ML__base"><span class="ML__mathit" style="margin-right: 0.14em;">P</span></span></span></span></span>. (You may have to show validation if you haven't shown it yet.)</p>
+<p>Even though the theorem and proof at the top of this document assume and prove <span class="lurch-atom" contenteditable="false" data-metadata_type="&quot;expositorymath&quot;" data-metadata_latex="&quot;P&quot;"><span class="lurch-atom-body"><span class="ML__latex"><span class="ML__base"><span class="ML__mathit" style="margin-right: 0.14em;">P</span></span></span></span></span>, they do so&nbsp;<em>inside</em> the theorem and proof environments, and those facts are "trapped" inside that theorem and proof, so out here in the document itself, we do not know that <span class="lurch-atom" contenteditable="false" data-metadata_type="&quot;expositorymath&quot;" data-metadata_latex="&quot;P&quot;"><span class="lurch-atom-body"><span class="ML__latex"><span class="ML__base"><span class="ML__mathit" style="margin-right: 0.14em;">P</span></span></span></span></span> is true. (Nor should we; no propositional letter is a theorem by itself!)</p>
+<p>This will become even more important later, when we see examples of declaring variables for use in proofs.</p>
+<h2>Try messing up the proof</h2>
+<p>Adjust the document shown above so that the proof is no longer valid.&nbsp;(For example, you could change the final <span class="lurch-atom" contenteditable="false" data-metadata_type="&quot;expositorymath&quot;" data-metadata_latex="&quot;P&quot;"><span class="lurch-atom-body"><span class="ML__latex"><span class="ML__base"><span class="ML__mathit" style="margin-right: 0.14em;">P</span></span></span></span></span> to a <span class="lurch-atom" contenteditable="false" data-metadata_type="&quot;expositorymath&quot;" data-metadata_latex="&quot;Q&quot;"><span class="lurch-atom-body"><span class="ML__latex"><span class="ML__base"><span class="ML__mathit">Q</span></span></span></span></span>.) Ask Lurch to check the document again. Which feedback icons changed?</p>
+<p>Surprise! Why does the theorem keep its green check marks even though its proof is invalid? Is Lurch making a mistake?</p>
+<ul>
+<li><em>This is not typical. It is happening here because this theorem is trivial.</em></li>
+<li>Lurch actually knows that the theorem is true as soon as it reads it, without seeing the proof, because the theorem is self-evidently true. So it grades the theorem correct without even reading the proof.</li>
+<li>But the proof is incorrect, so it gets negative feedback.</li>
+<li>But the overwhelming majority of theorems are not trivially true, and thus Lurch will rely on the proof you provide. If you provide an invalid proof, your theorem will immediately lose its green check marks. We'll see that soon when we try some harder proofs.</li>
+</ul>
+<h2>Interacting with environments</h2>
+<p>You can move your cursor in and out of environments in the expected ways, using the mouse and arrow keys. But there are many ways to interact with environments while editing a document, including these:</p>
+<ul>
+<li>If you right-click an environment (not one of its inner expressions!) you can change which type of environment it is (e.g., from Theorem to Proof). Other options on that list will be covered in other parts of the tutorial.</li>
+<li>From that same menu, you can also delete the environment, letting its&nbsp;contents spill out into the rest of the document.</li>
+<li>If your cursor is at the start of an environment and you press Backspace, it&nbsp;merges it with the paragraph before. (This typically deletes the environment,&nbsp;unless the previous paragraph was empty.)</li>
+<li>If you want to insert a new, empty paragraph above or below the environment&nbsp;containing the cursor, see the relevant items on the Insert menu. For&nbsp;example, you can insert a blank paragraph between the theorem and proof by&nbsp;putting your cursor in the theorem and choosing to insert a paragraph below&nbsp;it.</li>
+<li>You can add new paragraphs inside a proof (or any kind of environment) by&nbsp;pressing enter while your cursor is inside it. If you instead intended to&nbsp;add a paragraph outside the environment, see the previous bullet point.</li>
+</ul>
+<h2>Creating environments</h2>
+<p>You can insert environments by clicking the Insert menu and choosing "Environment," then picking the type you want from the menu that pops up (e.g., Theorem). You can also type a backslash (\) followed by the name of the environment you want (e.g., \theorem to insert a theorem, or \proof to insert a proof).</p>
+<p>Test out your new Lurch knowledge by reproducing in the space below the theorem and proof you see above, but this time with a different variable, such as <span class="lurch-atom" contenteditable="false" data-metadata_type="&quot;expositorymath&quot;" data-metadata_latex="&quot;A&quot;"><span class="lurch-atom-body"><span class="ML__latex"><span class="ML__base"><span class="ML__mathit">A</span></span></span></span></span> or <span class="lurch-atom" contenteditable="false" data-metadata_type="&quot;expositorymath&quot;" data-metadata_latex="&quot;B&quot;"><span class="lurch-atom-body"><span class="ML__latex"><span class="ML__base"><span class="ML__mathit" style="margin-right: 0.06em;">B</span></span></span></span></span>. Have Lurch check your work afterwards to be sure you got it right!</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>When you've tested yourself in this way, head back to the table of contents to try the next tutorial.</p></div>
+        

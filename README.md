@@ -1,11 +1,18 @@
 
-# Minimalist Lurch Site
+# Lurch Introductory Tutorial Site
 
-For an explanation of the Lurch project in general, see
-[the project website](http://lurchmath.github.io).
+## This tutorial is a website.
 
-This repository is a fork of the main Lurch repository, but with all developer
-tools removed.  It makes a great starting point for creating a Lurch Site (that
-is, your own copy of Lurch, configured how you need for your course, hosted on
-GitHub's web space).  To see how to create a Lurch Site, refer to
-[our documentation on that topic](https://lurchmath.github.io/site/how-to-create-a-lurch-site/).
+[View it online here.](https://lurchmath.github.io/intro-tutorial)
+
+## What is Lurch?
+
+See [the project website](http://lurchmath.github.io).
+
+## What is this repository?
+
+This repository contains tutorial documents intended for a completely new Lurch
+user, to learn how it works and how to use it.
+
+This repository is an example of a Lurch Site, which you can learn more about
+[here](https://lurchmath.github.io/site/what-is-a-lurch-site/).
