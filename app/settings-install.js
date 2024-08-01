@@ -74,8 +74,8 @@ export const appSettings = new Settings(
                 false
             ),
             new NoteMetadata(
-                'If you toggle the developer menu on/off, you will need to reload '
-              + 'the application for the change to take effect.'
+                'If you toggle the instructor menu on/off, you will need to '
+              + 'reload the application for the change to take effect.'
             )
         ),
         new SettingsCategoryMetadata(
