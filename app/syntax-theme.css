@@ -112,12 +112,22 @@ body,p,h1,h2,h3,h4,h5,h6,div,ul,ol,li {
 body {
   font-size: var(--base-font-size);
 }
-/* for some reason the math symbols are too small compared to the surrounding text 
-   so increase them here. */
+/*
+ * For some reason the math symbols are too small compared to the surrounding
+ * text, so increase them here. But we ensure that this change does not apply
+ * to text inside the math, which is already the correct size.
+ */
 .ML__latex :not(.ML__text) {
-  font-size: 1.2 * var(--base-font-size);
+  font-size: calc(1.2 * var(--base-font-size));
 }
-
+/*
+ * But the above change will propagate inward from parent DOM elements to their
+ * children, unless we explicitly override it, as follows.
+ */
+.ML__text {
+  font-size: var(--base-font-size);
+}
+  
 /***********************************************************************/
 /*                               Spacing                               */
 
