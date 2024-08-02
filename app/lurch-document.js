@@ -497,8 +497,12 @@ export class LurchDocument {
             )
         ),
         new SettingsCategoryMetadata(
-          'Validation options',
-          new BoolSettingMetadata( 'instantiateEverything', 'Try harder to validate (can be much slower)', false )
+            'Validation options',
+            new BoolSettingMetadata(
+                'instantiate everything',
+                'Try harder to validate (can be much slower)',
+                false
+            ),
        )
     )
 

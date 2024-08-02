@@ -119,9 +119,9 @@ export const appSettings = new Settings(
                 false
             ),
             new BoolSettingMetadata(
-              'export LaTeX shells',
-              'Export shells as LaTeX environments',
-              true
+                'export LaTeX shells',
+                'Export shells as LaTeX environments',
+                true
           ),
       ),
         new SettingsCategoryMetadata(

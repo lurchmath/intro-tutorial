@@ -13,6 +13,10 @@ The configuration options are in JSON format, and are passed directly to the app
 when it is launched, using the `createApp()` function
 [you can read about here](https://lurchmath.github.io/apidocs/app/Lurch.html#.createApp).
 That page documents every option available to you in the JSON configuration.
+You can also read example configuration options in
+[this file,](https://github.com/lurchmath/lurch/blob/main/app/config/example-for-reference-only.js)
+which are ready for you to copy and paste into your own configuration file, and
+come with plenty of comments to explain what they do.
 
 ## Pre-built configurations
 

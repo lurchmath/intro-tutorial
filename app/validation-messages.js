@@ -346,7 +346,8 @@ export class Message {
         
         // add LDE attributes obtained from document settings to the document LC
         // that is passed to the LDE.
-        LC.setAttribute( 'instantiateEverything', lookup( editor, 'instantiateEverything' ) )
+        LC.setAttribute( 'instantiateEverything',
+            lookup( editor, 'instantiate everything' ) )
 
         // Create a message that could be sent to the validation worker, including
         // the encoding produced above of the document's atoms and shells.
